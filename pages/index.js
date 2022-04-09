@@ -1,13 +1,30 @@
 import styles from '../styles/Index.module.scss'
 import { SegmentedControl, NativeSelect, Slider, InputWrapper, Button } from '@mantine/core';
 import { ChevronDown } from 'tabler-icons-react';
-
+import { useForm } from 'react-hook-form';
 export default function Home() {
+
+  const { register, handleSubmit } = useForm();
+
+  function onSubmit(data){
+    console.log(data);
+    fetch('api/getQustions',{
+      method: "POST",
+      body: JSON.stringify(data)
+
+    })
+    .then(res => res.json()).then(res => console.log(res))
+    
+
+  }
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       <h1>Quiz App</h1>
 
       <NativeSelect
+        name='category'
+        {...register("category")}
         style={{width: '50%'}}
         styles={{
           label: { color: 'white' },
@@ -27,6 +44,8 @@ export default function Home() {
       />
 
         <SegmentedControl
+          name='difficult'
+          {...register("difficult")}
           style={{width: '50%'}}
           data={[
             { label: 'Easy', value: 'easy' },
@@ -46,6 +65,8 @@ export default function Home() {
       >
 
         <Slider
+          name='questionsNumber'
+          {...register("questionsNumber")}
           styles={{
             markLabel: { color: 'white' }
           }}
@@ -66,10 +87,9 @@ export default function Home() {
         />
       </InputWrapper>
       
-      <Button color="violet" size="md">
+      <Button color="violet" size="md" type='submit'>
         Let's go!
       </Button>
-
-    </div>
+    </form>
   )
 }
