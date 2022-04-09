@@ -1,30 +1,44 @@
 import styles from '../styles/Index.module.scss'
 import { SegmentedControl, NativeSelect, Slider, InputWrapper, Button } from '@mantine/core';
+import { useForm } from '@mantine/form';
+
 import { ChevronDown } from 'tabler-icons-react';
-import { useForm } from 'react-hook-form';
-export default function Home() {
+import ContinueModal from '../components/ContinueModal';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-  const { register, handleSubmit } = useForm();
+export default function Home( { quests, setQuests} ) {
 
-  function onSubmit(data){
-    console.log(data);
-    fetch('api/getQustions',{
-      method: "POST",
-      body: JSON.stringify(data)
+  const form = useForm({ initialValues: { category: '10', difficult: 'easy',  questionsNumber: '1'} });
+  const router = useRouter()
 
-    })
-    .then(res => res.json()).then(res => console.log(res))
+
+  function onSubmit( { category, difficult, questionsNumber } ){
+    // fetch('api/getQustions',{
+    //   method: "POST",
+    //   body: JSON.stringify(data)
+
+    // })
+    // .then(res => res.json()).then(res => console.log(res))
+
+    // ! ZAWIESZONE
+    // ? Zmiana podejścia
+
+    fetch(`https://opentdb.com/api.php?amount=${questionsNumber}&category=${category}&difficulty=${difficult}`)
+    .then(res => res.json())
+    .then(res => setQuests(res.results))
     
-
+    router.push('/quiz')
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+    <>
+
+    <form className={styles.container} onSubmit={form.onSubmit((values) => onSubmit(values))}>
       <h1>Quiz App</h1>
 
       <NativeSelect
-        name='category'
-        {...register("category")}
+        {...form.getInputProps('category')}
         style={{width: '50%'}}
         styles={{
           label: { color: 'white' },
@@ -44,8 +58,7 @@ export default function Home() {
       />
 
         <SegmentedControl
-          name='difficult'
-          {...register("difficult")}
+          {...form.getInputProps('difficult')}
           style={{width: '50%'}}
           data={[
             { label: 'Easy', value: 'easy' },
@@ -65,8 +78,7 @@ export default function Home() {
       >
 
         <Slider
-          name='questionsNumber'
-          {...register("questionsNumber")}
+          {...form.getInputProps('questionsNumber')}
           styles={{
             markLabel: { color: 'white' }
           }}
@@ -91,5 +103,9 @@ export default function Home() {
         Let's go!
       </Button>
     </form>
+
+    
+    {quests != null && <ContinueModal setQuests={setQuests} /> }
+    </>
   )
 }

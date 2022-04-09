@@ -1,7 +1,9 @@
-import { Center } from '@mantine/core'
+import { useLocalStorage } from '@mantine/hooks';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
+
+  const [quests, setQuests] = useLocalStorage({ key: 'quests', defaultValue: null });
   
   const styles = {
     height: 'calc(100vh - 80px)',
@@ -12,7 +14,7 @@ function MyApp({ Component, pageProps }) {
   return(
 
     <div style={styles}>
-      <Component {...pageProps} /> 
+      <Component {...pageProps} quests={quests} setQuests={setQuests} /> 
     </div>
 
   )
