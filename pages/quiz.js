@@ -1,17 +1,32 @@
 import React from 'react'
 import { useState } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
+import { QuizContext } from '../context/QuizContext'
+import Quest from '../components/Quest'
 
-export default function quiz( { quests } ) {
-  const [questions, setQuestions] = useState(quests)
+export default function quiz() {
+
+  const { quests, anserws, setAnserws } = useContext(QuizContext)
+
+  const [questIndex, setQuestIndex] = useState(0)
   const router = useRouter()
-
-  
     useEffect(() => {
-        if (questions == null)
+        if (quests == null)
           router.push('/')
-    }, [questions])
+        if(anserws.lenght > 0)
+          setQuestIndex(anserws)
+    }, [])
+
+    useEffect(() => {
+      if(questIndex > anserws)
+        console.log("KONIEC QUIZU");
+    }, [anserws])
+    
+
+    
+    
+
 
     
 
@@ -19,6 +34,7 @@ export default function quiz( { quests } ) {
   
   
   return (
-    <h1>xd</h1>
+
+    <Quest quests={quests[questIndex]} />
   )
 }

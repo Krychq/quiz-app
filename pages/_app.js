@@ -1,9 +1,8 @@
-import { useLocalStorage } from '@mantine/hooks';
 import '../styles/globals.css'
+import { QuizProvider } from '../context/QuizContext'
 
 function MyApp({ Component, pageProps }) {
 
-  const [quests, setQuests] = useLocalStorage({ key: 'quests', defaultValue: null });
   
   const styles = {
     height: 'calc(100vh - 80px)',
@@ -14,7 +13,9 @@ function MyApp({ Component, pageProps }) {
   return(
 
     <div style={styles}>
-      <Component {...pageProps} quests={quests} setQuests={setQuests} /> 
+      <QuizProvider>
+        <Component {...pageProps} /> 
+      </QuizProvider>
     </div>
 
   )

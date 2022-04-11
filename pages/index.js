@@ -1,26 +1,23 @@
 import styles from '../styles/Index.module.scss'
 import { SegmentedControl, NativeSelect, Slider, InputWrapper, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
-
+import { useContext } from 'react';
 import { ChevronDown } from 'tabler-icons-react';
-import ContinueModal from '../components/ContinueModal';
-import Link from 'next/link'
+import ContinueModal from '../components/ContinueModal'
 import { useRouter } from 'next/router'
+import { QuizContext } from '../context/QuizContext'
+import axios from 'axios';
 
-export default function Home( { quests, setQuests} ) {
+export default function Home() {
 
+  const { quests, setQuests } = useContext(QuizContext) 
   const form = useForm({ initialValues: { category: '10', difficult: 'easy',  questionsNumber: '1'} });
   const router = useRouter()
 
 
-  function onSubmit( { category, difficult, questionsNumber } ){
-  // ! ZAWIESZONE
-    // ? Zmiana podejścia
-
-    fetch(`https://opentdb.com/api.php?amount=${questionsNumber}&category=${category}&difficulty=${difficult}`)
-    .then(res => res.json())
-    .then(res => setQuests(res.results))
-    
+  async function onSubmit( { category, difficult, questionsNumber } ){
+    const response = await axios.get(`https://opentdb.com/api.php?amount=${questionsNumber}&category=${category}&difficulty=${difficult}`);
+    setQuests(response.data.results)
     router.push('/quiz')
   }
 
