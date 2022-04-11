@@ -7,13 +7,14 @@ export default function quiz( { quests } ) {
   const [questions, setQuestions] = useState(quests)
   const router = useRouter()
 
-  useEffect(() => {
-
-        // if(quests == null)
-        //     router.push('/')
-        console.log(quests);
   
-  }, [])
+    useEffect(() => {
+        if (questions == null)
+          router.push('/')
+    }, [questions])
+
+    
+
   
   
   

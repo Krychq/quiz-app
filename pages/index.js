@@ -14,14 +14,7 @@ export default function Home( { quests, setQuests} ) {
 
 
   function onSubmit( { category, difficult, questionsNumber } ){
-    // fetch('api/getQustions',{
-    //   method: "POST",
-    //   body: JSON.stringify(data)
-
-    // })
-    // .then(res => res.json()).then(res => console.log(res))
-
-    // ! ZAWIESZONE
+  // ! ZAWIESZONE
     // ? Zmiana podejścia
 
     fetch(`https://opentdb.com/api.php?amount=${questionsNumber}&category=${category}&difficulty=${difficult}`)
@@ -33,7 +26,7 @@ export default function Home( { quests, setQuests} ) {
 
   return (
     <>
-
+    {quests != null && <ContinueModal setQuests={setQuests} /> }
     <form className={styles.container} onSubmit={form.onSubmit((values) => onSubmit(values))}>
       <h1>Quiz App</h1>
 
@@ -102,10 +95,7 @@ export default function Home( { quests, setQuests} ) {
       <Button color="violet" size="md" type='submit'>
         Let's go!
       </Button>
-    </form>
-
-    
-    {quests != null && <ContinueModal setQuests={setQuests} /> }
+    </form>  
     </>
   )
 }
