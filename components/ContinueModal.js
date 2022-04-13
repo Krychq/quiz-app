@@ -1,14 +1,24 @@
+import React, { useContext } from 'react'
 import { Modal, Button } from '@mantine/core';
-import Link from 'next/link'
 import styles from '../styles/ContinueModal.module.scss'
+import { QuizContext } from '../context/QuizContext'
+import { useRouter } from 'next/router'
 
-export default function ContinueModal({setQuests}) {
+export default function ContinueModal() {
 
+    const { setQuests, setAnserws } = useContext(QuizContext)
+
+    const router = useRouter()
+
+    function onClose(){
+        setAnserws([])
+        setQuests(null)
+    }
     return(
         <>
             <Modal
                 opened={true}
-                onClose={() => setQuests(null)}
+                onClose={onClose}
                 classNames={{
                     modal: styles.modal,
                     body: styles.container,
@@ -23,13 +33,13 @@ export default function ContinueModal({setQuests}) {
                         color="violet"
                         variant="outline"
                         size="md"
-                        onClick={() => setQuests(null)}
+                        onClick={onClose}
                     >
                         New quiz
                     </Button>
 
-                    <Button color="violet" size="md">
-                        <Link href='/quiz'>Continue</Link>
+                    <Button color="violet" size="md" onClick={() => router.push('/quiz')}>
+                        Continue
                     </Button>
                 </div>
             </Modal>

@@ -2,4 +2,14 @@
     background-color: #7950f2;
     border: 1px solid transparent;
     border-radius: 4px;
+    height: 50px;
+    transition: .5;
+
+    &:hover{
+        background-color: darken(#7950f2, 40%);
+        cursor: pointer;
+    }
+
+    display: grid;
+    place-items: center;
 }

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from '../styles/Anserw.module.scss'
+import { QuizContext } from '../context/QuizContext'
 
-function Anserw(props) {
-  console.log(props);
+function Anserw( { props } ) {
+  
+  const { anserws, setAnserws } = useContext(QuizContext)
+
   return (
-    <div className={styles.container}>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>  
+    <div className={styles.container} onClick={() => setAnserws([...anserws, props])}>
+      <h2>{props}</h2>
     </div>
   )
 }
