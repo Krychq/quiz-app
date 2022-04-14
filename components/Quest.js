@@ -1,17 +1,17 @@
 import React from 'react'
 import Anserw from './Anserw'
 import styles from '../styles/Quest.module.scss'
+import { decode } from 'html-entities';
 
-const he = require('he');
-
-function Quest( { question, correct_answer, incorrect_answers} ){
+function Quest( { question, correct_answer, incorrect_answers } ){
+  
   return (
     <div className={styles.container}>
-      <h1>{he.decode(question)}</h1>
+      <h1>{decode(question)}</h1>
 
       <div className={styles.anserwsContainer}>
         {[correct_answer, ...incorrect_answers].map((el, index) => {
-          return <Anserw props={he.decode(el)} key={index} />
+          return <Anserw props={decode(el)} key={index} />
         })}  
       </div>
 

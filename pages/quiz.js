@@ -1,39 +1,33 @@
-import React from 'react'
-import { useState } from 'react'
-import { useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { QuizContext } from '../context/QuizContext'
 import Quest from '../components/Quest'
+import Loading from '../components/Loading'
 
-export default function quiz() {
-
+export default function Quiz() {
   const { quests, anserws } = useContext(QuizContext)
-
   const [questIndex, setQuestIndex] = useState(0)
-
   const question = quests ?? 0;
-
   const router = useRouter()
 
-    useEffect(() => {
-        if (quests == null)
-          router.push('/')
-        if(anserws.lenght > 0)
-          setQuestIndex(anserws.lenght)
-    }, [])
+  useEffect(() => {
+      if (quests == null)
+        router.push('/')
+    }, [,quests])
 
     useEffect(() => {
-      
-      if(quests.length-1 <= anserws.length+1){
-        router.push('/summary')
+      if(quests){
+        if(quests.length <= anserws.length){
+          router.push('/summary')
+        }
+        setQuestIndex(anserws.length)
       }
-      setQuestIndex(questIndex + 1)
     }, [anserws])
 
   return (
     <>
       {
-        !quests ? (<h1>Loading</h1>) : (
+        !quests || !quests[questIndex]?.question ? <Loading /> : (
             <Quest {...question[questIndex]} />
         )
       }

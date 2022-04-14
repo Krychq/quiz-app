@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from 'react'
 import '../styles/globals.css'
 import { QuizProvider } from '../context/QuizContext'
-import React, { useState, useEffect } from 'react'
+import Loading from '../components/Loading';
 
 function MyApp({ Component, pageProps }) {
 
@@ -10,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   if (!showChild) {
-    return null;
+    return <Loading />;
   }
   
   const styles = {
