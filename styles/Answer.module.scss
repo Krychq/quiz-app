@@ -1,15 +1,16 @@
-.container{
-    background-color: #7950f2;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    height: 50px;
-    transition: .5;
+.container {
+  background-color: #7950f2;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 50px;
+  transition: 0.5;
+  font-size: 0.8rem;
 
-    &:hover{
-        background-color: darken(#7950f2, 40%);
-        cursor: pointer;
-    }
+  &:hover {
+    background-color: darken(#7950f2, 40%);
+    cursor: pointer;
+  }
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 }

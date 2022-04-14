@@ -1,5 +1,22 @@
-.container{
-    display: grid;
-    gap: 40px;
-    text-align: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 800px;
+  height: auto;
+  border: 3px solid white;
+  color: white;
+  border-radius: 10px;
+  padding: 100px 0;
+}
+
+.btnsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 30px;
+  button {
+    width: 220px;
+  }
 }
