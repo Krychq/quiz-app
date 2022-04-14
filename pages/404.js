@@ -16,7 +16,7 @@ export default function Custom404() {
 
         <h1>Oops</h1>
         <p>We couldn't find the page you are looking for...</p>
-        <Button color="violet" size="lg" type='submit' radius='md'>
+        <Button color="violet" size="lg" radius='md'>
             <Link href='/'>Back to Homepage</Link>
         </Button>
     </div>

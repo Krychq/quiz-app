@@ -19,10 +19,10 @@ function Loading() {
   return (
     <div style={containerStyle}>
         <Player
-        autoplay
-        loop
-        src="https://assets5.lottiefiles.com/packages/lf20_QUbOiL.json"
-        style={{ height: '300px', width: '300px' }}
+          autoplay
+          loop
+          src="https://assets5.lottiefiles.com/packages/lf20_QUbOiL.json"
+          style={{ height: '300px', width: '300px' }}
         />
         <h1 style={labelStyle}>LOADING...</h1>
     </div>
