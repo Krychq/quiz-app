@@ -32,7 +32,6 @@
   height: 50px;
   transition: 0.5;
   &:hover {
-    cursor: pointer;
     background-color: darken(#7950f2, 40%);
   }
   display: grid;

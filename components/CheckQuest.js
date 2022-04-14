@@ -10,11 +10,11 @@ function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
       <div className={styles.answersContainer}>
         {[correct_answer, ...incorrect_answers].map((el, index) => {
           let answerClass = styles.answer
+          if (el === your_answer)
+            answerClass = `${styles.answer} ${styles.incorrect}`
           if (el === correct_answer)
             answerClass = `${styles.answer} ${styles.correct}`
 
-          if (el === your_answer)
-            answerClass = `${styles.answer} ${styles.incorrect}`
           return (
             <div key={index} className={answerClass}>
               <h2>{decode(el)}</h2>
