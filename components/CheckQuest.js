@@ -15,8 +15,6 @@ function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
 
           if (el === your_answer)
             answerClass = `${styles.answer} ${styles.incorrect}`
-
-          console.log(your_answer)
           return (
             <div key={index} className={answerClass}>
               <h2>{decode(el)}</h2>

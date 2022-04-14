@@ -21,7 +21,6 @@ export default function ChoicesModal({ setModalIsOpen }) {
       >
         <h1 style={{ fontSize: "3rem", marginBottom: "20px" }}>Your answers</h1>
         {quests.map((el, index) => {
-          console.log(el)
           return <CheckQuest {...el} your_answer={answers[index]} key={index} />
         })}
       </Modal>
