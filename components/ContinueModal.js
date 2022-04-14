@@ -6,12 +6,12 @@ import { useRouter } from 'next/router'
 
 export default function ContinueModal() {
 
-    const { setQuests, setAnserws } = useContext(QuizContext)
+    const { setQuests, setAnswers } = useContext(QuizContext)
 
     const router = useRouter()
 
     function onClose(){
-        setAnserws([])
+        setAnswers([])
         setQuests(null)
     }
     return(

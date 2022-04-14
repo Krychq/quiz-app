@@ -22,15 +22,15 @@ export default function Summary() {
   const [count, setCount] = useState([0, 0]) // [0] => correct / [1] => all
   const [gifIsVisible, setGifIsVisible] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const { quests, setQuests, anserws, setAnserws } = useContext(QuizContext)
+  const { quests, setQuests, answers, setAnswers } = useContext(QuizContext)
   const router = useRouter()
 
   useEffect(() => {
     let counter = 0;
-    if(quests != null && quests.length === anserws.length){
+    if(quests != null && quests.length === answers.length){
       for (const x in quests) {
         if(quests[x]?.correct_answer){
-          if(quests[x].correct_answer === anserws[x]){
+          if(quests[x].correct_answer === answers[x]){
             counter++;
           }
         }
@@ -39,7 +39,7 @@ export default function Summary() {
       setCount([counter, quests.length])
       
       setQuests(null)
-      setAnserws([])
+      setAnswers([])
     }else{
       router.push('/quiz')
     }

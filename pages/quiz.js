@@ -5,7 +5,7 @@ import Quest from '../components/Quest'
 import Loading from '../components/Loading'
 
 export default function Quiz() {
-  const { quests, anserws } = useContext(QuizContext)
+  const { quests, answers } = useContext(QuizContext)
   const [questIndex, setQuestIndex] = useState(0)
   const question = quests ?? 0;
   const router = useRouter()
@@ -17,12 +17,12 @@ export default function Quiz() {
 
     useEffect(() => {
       if(quests){
-        if(quests.length <= anserws.length){
+        if(quests.length <= answers.length){
           router.push('/summary')
         }
-        setQuestIndex(anserws.length)
+        setQuestIndex(answers.length)
       }
-    }, [anserws])
+    }, [answers])
 
   return (
     <>

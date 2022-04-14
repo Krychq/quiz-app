@@ -6,14 +6,14 @@ export const QuizContext = React.createContext()
 export function QuizProvider( { children } ) {
     
     const [quests, setQuests] = useLocalStorage({ key: 'quests', defaultValue: null })
-    const [anserws, setAnserws] = useLocalStorage({ key: 'anserws', defaultValue: [] })
+    const [answers, setAnswers] = useLocalStorage({ key: 'answers', defaultValue: [] })
   
     return (
     <QuizContext.Provider value={{
         quests,
         setQuests,
-        anserws,
-        setAnserws
+        answers,
+        setAnswers
     }}>
         {children}
     </QuizContext.Provider>

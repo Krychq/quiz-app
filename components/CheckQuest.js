@@ -8,7 +8,7 @@ function Quest( { question, correct_answer, incorrect_answers } ){
     <div className={styles.container}>
       <h1>{decode(question)}</h1>
 
-      <div className={styles.anserwsContainer}>
+      <div className={styles.answersContainer}>
         {[correct_answer, ...incorrect_answers].map((el, index) => {
             let bgc = '#7950f2'
             if(el === correct_answer)

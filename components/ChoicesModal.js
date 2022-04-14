@@ -3,7 +3,7 @@ import { QuizContext } from '../context/QuizContext'
 
 export default function ChoicesModal( { setModalIsOpen } ) {
   
-  const { quests, anserws } = React.useContext(QuizContext)
+  const { quests, answers } = React.useContext(QuizContext)
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function ChoicesModal( { setModalIsOpen } ) {
       >
         {quests.map((el, index) => {
           return (
-            
+            <h1>s</h1>
           )
         })}
 
