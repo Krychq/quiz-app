@@ -40,17 +40,17 @@ export default function Home() {
       {loading ? (
         <Loading />
       ) : (
-        <>
+        <div className={styles.container}>
           {quests != null && <ContinueModal setQuests={setQuests} />}
           <form
-            className={styles.container}
+            className={styles.form}
             onSubmit={form.onSubmit((values) => onSubmit(values))}
           >
             <h1>Quiz App</h1>
 
             <NativeSelect
               {...form.getInputProps("category")}
-              style={{ width: "50%" }}
+              style={{ width: "100%" }}
               styles={{
                 label: { color: "white" },
                 rightSection: { color: "black" },
@@ -70,7 +70,7 @@ export default function Home() {
 
             <SegmentedControl
               {...form.getInputProps("difficult")}
-              style={{ width: "50%" }}
+              style={{ width: "100%" }}
               data={[
                 { label: "Easy", value: "easy" },
                 { label: "Medium", value: "medium" },
@@ -81,7 +81,7 @@ export default function Home() {
             />
 
             <InputWrapper
-              style={{ width: "50%" }}
+              style={{ width: "100%" }}
               styles={{
                 label: { color: "white" },
               }}
@@ -113,7 +113,7 @@ export default function Home() {
               Let's go!
             </Button>
           </form>
-        </>
+        </div>
       )}
     </>
   )
