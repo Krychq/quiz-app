@@ -52,7 +52,7 @@ export default function Home() {
               {...form.getInputProps("category")}
               style={{ width: "100%" }}
               styles={{
-                label: { color: "white" },
+                label: { color: "white", fontSize: "1rem" },
                 rightSection: { color: "black" },
               }}
               label="Select Category:"
@@ -70,7 +70,7 @@ export default function Home() {
 
             <SegmentedControl
               {...form.getInputProps("difficult")}
-              style={{ width: "100%" }}
+              style={{ width: "100%", label: { fontSize: "1rem" } }}
               data={[
                 { label: "Easy", value: "easy" },
                 { label: "Medium", value: "medium" },
@@ -83,14 +83,14 @@ export default function Home() {
             <InputWrapper
               style={{ width: "100%" }}
               styles={{
-                label: { color: "white" },
+                label: { color: "white", fontSize: "1rem" },
               }}
               label="Number of Questions:"
             >
               <Slider
                 {...form.getInputProps("questionsNumber")}
                 styles={{
-                  markLabel: { color: "white" },
+                  markLabel: { color: "white", fontSize: "1rem" },
                 }}
                 min={1}
                 max={10}

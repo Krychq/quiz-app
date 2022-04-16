@@ -17,3 +17,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+@media screen and (max-width: 900px) {
+  :root {
+    font-size: 14px;
+  }
+}
