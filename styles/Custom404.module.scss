@@ -2,22 +2,17 @@
   background-color: #fff;
   display: grid;
   place-items: "center";
-  gap: 1.1em;
-  padding: 2.7em 5.5em;
+  gap: 20px;
+  padding: 50px 100px;
+  z-index: "999";
   border-radius: 20%;
   color: black;
   text-align: center;
 
   h1 {
-    font-size: 2.7em;
+    font-size: 50px;
   }
   p {
-    font-size: 1.2em;
-  }
-}
-
-@media screen and (max-width: 660px) {
-  .container {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }

@@ -1,7 +1,6 @@
 .inner {
   width: 100%;
   height: 100vh;
-  padding: 0;
   display: grid;
   place-items: center;
 }
@@ -23,21 +22,12 @@
   height: 300px;
 }
 
-.btnWrapper {
+.btnsWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 
   button {
     width: 200px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .modal {
-    width: 98%;
-  }
-  .container {
-    // padding: 0;
   }
 }

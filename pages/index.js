@@ -40,19 +40,19 @@ export default function Home() {
       {loading ? (
         <Loading />
       ) : (
-        <div className={styles.container}>
+        <>
           {quests != null && <ContinueModal setQuests={setQuests} />}
           <form
-            className={styles.form}
+            className={styles.container}
             onSubmit={form.onSubmit((values) => onSubmit(values))}
           >
             <h1>Quiz App</h1>
 
             <NativeSelect
               {...form.getInputProps("category")}
-              style={{ width: "100%" }}
+              style={{ width: "50%" }}
               styles={{
-                label: { color: "white", fontSize: "1rem" },
+                label: { color: "white" },
                 rightSection: { color: "black" },
               }}
               label="Select Category:"
@@ -70,7 +70,7 @@ export default function Home() {
 
             <SegmentedControl
               {...form.getInputProps("difficult")}
-              style={{ width: "100%", label: { fontSize: "1rem" } }}
+              style={{ width: "50%" }}
               data={[
                 { label: "Easy", value: "easy" },
                 { label: "Medium", value: "medium" },
@@ -81,16 +81,16 @@ export default function Home() {
             />
 
             <InputWrapper
-              style={{ width: "100%" }}
+              style={{ width: "50%" }}
               styles={{
-                label: { color: "white", fontSize: "1rem" },
+                label: { color: "white" },
               }}
               label="Number of Questions:"
             >
               <Slider
                 {...form.getInputProps("questionsNumber")}
                 styles={{
-                  markLabel: { color: "white", fontSize: "1rem" },
+                  markLabel: { color: "white" },
                 }}
                 min={1}
                 max={10}
@@ -113,7 +113,7 @@ export default function Home() {
               Let's go!
             </Button>
           </form>
-        </div>
+        </>
       )}
     </>
   )

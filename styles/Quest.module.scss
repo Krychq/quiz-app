@@ -23,18 +23,3 @@
   gap: 20px;
   grid-template-columns: 1fr 1fr;
 }
-
-@media screen and (max-width: 900px) {
-  .container {
-    width: 90%;
-    padding: 20px;
-  }
-  @media screen and (max-width: 650px) {
-    .answersContainer {
-      grid-template-columns: 1fr;
-    }
-    .container h1 {
-      font-size: 1.5rem;
-    }
-  }
-}

@@ -3,7 +3,7 @@ import styles from "../styles/Footer.module.scss"
 
 export default function Footer() {
   return (
-    <footer className={styles.container}>
+    <div className={styles.container}>
       <p>
         &copy; 2022 Enjoy. All Right Reserved. Author:{" "}
         <a href="https://github.com/Krychq" target="_blank" rel="noreferrer">
@@ -18,6 +18,6 @@ export default function Footer() {
           Github Repository
         </a>
       </p>
-    </footer>
+    </div>
   )
 }

@@ -1,12 +1,12 @@
 .container {
   width: 100%;
   text-align: center;
-  padding: 2rem 0;
+  padding: 20px 0;
   position: absolute;
   left: 0;
   bottom: 0;
   color: #848484;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 
   a {
     font-weight: 700;
@@ -14,17 +14,5 @@
     &:hover {
       color: darken(#848484, 20%);
     }
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .container {
-    font-size: 0.6rem;
-  }
-}
-
-@media screen and (max-height: 490px) {
-  .container {
-    position: relative;
   }
 }
