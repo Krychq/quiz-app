@@ -4,6 +4,7 @@ import { QuizContext } from "../context/QuizContext"
 import { useRouter } from "next/router"
 import { Player } from "@lottiefiles/react-lottie-player"
 import { Button } from "@mantine/core"
+import { useMediaQuery } from "@mantine/hooks"
 import ChoicesModal from "../components/ChoicesModal"
 
 export default function Summary() {
@@ -22,6 +23,7 @@ export default function Summary() {
   const [gifIsVisible, setGifIsVisible] = useState(true)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const { quests, setQuests, answers, setAnswers } = useContext(QuizContext)
+  const matches = useMediaQuery("(min-width: 700px)")
   const router = useRouter()
 
   function newQuiz() {
@@ -57,7 +59,7 @@ export default function Summary() {
       <Player
         autoplay
         src="https://assets6.lottiefiles.com/packages/lf20_hxart9lz.json"
-        style={{ height: "60%", width: "60%" }}
+        style={{ height: "80%", width: "80%" }}
       />
     )
   } else {
@@ -71,17 +73,22 @@ export default function Summary() {
           ).toFixed(0)}%)`}</h1>
           <h2>{choosePraise((count[0] / count[1]) * 100)}</h2>
 
-          <div className={styles.btnsWrapper}>
+          <div className={styles.btnWrapper}>
             <Button
               style={{ color: "#fff", borderColor: "#fff" }}
-              size="lg"
+              size={matches ? "lg" : "md"}
               radius="md"
               variant="outline"
               onClick={() => setModalIsOpen(true)}
             >
               Show your choices
             </Button>
-            <Button color="violet" size="lg" radius="md" onClick={newQuiz}>
+            <Button
+              color="violet"
+              size={matches ? "lg" : "md"}
+              radius="md"
+              onClick={newQuiz}
+            >
               New quiz
             </Button>
           </div>

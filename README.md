@@ -1,3 +1,5 @@
-## Quiz App in Next js
+# Quiz App in Next js
 
-api: https://opentdb.com/api_config.php
+### Small quiz application write in next js
+
+[API HERE :)](https://opentdb.com/api_config.php "opentdb.com")

@@ -11,12 +11,20 @@
   padding: 100px 0;
 }
 
-.btnsWrapper {
+.btnWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   gap: 30px;
+  width: 70%;
+
   button {
-    width: 220px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 95%;
   }
 }

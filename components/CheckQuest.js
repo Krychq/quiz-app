@@ -9,7 +9,12 @@ function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
 
       <div className={styles.answersContainer}>
         {[correct_answer, ...incorrect_answers].map((el, index) => {
+          let fontSize = "1rem"
+
+          if (el.length > 40) fontSize = "0.8rem"
+
           let answerClass = styles.answer
+
           if (el === your_answer)
             answerClass = `${styles.answer} ${styles.incorrect}`
           if (el === correct_answer)
@@ -17,7 +22,7 @@ function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
 
           return (
             <div key={index} className={answerClass}>
-              <h2>{decode(el)}</h2>
+              <h2 style={{ fontSize: fontSize }}>{decode(el)}</h2>
             </div>
           )
         })}

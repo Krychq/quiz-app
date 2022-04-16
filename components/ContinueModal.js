@@ -2,12 +2,10 @@ import React, { useContext } from "react"
 import { Modal, Button } from "@mantine/core"
 import styles from "../styles/ContinueModal.module.scss"
 import { QuizContext } from "../context/QuizContext"
-import { useRouter } from "next/router"
+import Link from "next/link"
 
 export default function ContinueModal() {
   const { setQuests, setAnswers } = useContext(QuizContext)
-
-  const router = useRouter()
 
   function onClose() {
     setAnswers([])
@@ -26,14 +24,15 @@ export default function ContinueModal() {
       >
         <h1>Do you want continue your old quiz?</h1>
 
-        <div className={styles.btnsWrapper}>
+        <div className={styles.btnWrapper}>
           <Button color="violet" variant="outline" size="md" onClick={onClose}>
             New quiz
           </Button>
-
-          <Button color="violet" size="md" onClick={() => router.push("/quiz")}>
-            Continue
-          </Button>
+          <Link href="/quiz">
+            <Button color="violet" size="md">
+              Continue
+            </Button>
+          </Link>
         </div>
       </Modal>
     </>
