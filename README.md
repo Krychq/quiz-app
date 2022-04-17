@@ -5,3 +5,5 @@
 [Link to project](https://quiz-app-nextjs.netlify.app/)
 
 [Api Here 😀](https://opentdb.com/api_config.php)
+
+ENJOY!
