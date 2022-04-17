@@ -2,4 +2,6 @@
 
 ### Small quiz application in next js
 
-[API HERE :)](https://opentdb.com/api_config.php)
+[Link to project](https://quiz-app-nextjs.netlify.app/)
+
+[Api Here 😀](https://opentdb.com/api_config.php)
