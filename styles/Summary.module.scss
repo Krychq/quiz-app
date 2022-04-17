@@ -2,21 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 4rem;
   width: 800px;
   height: auto;
   border: 3px solid white;
   color: white;
   border-radius: 10px;
-  padding: 100px 0;
+  padding: 6rem 0;
 }
 
 .btnWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 30px;
-  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
 
   button {
     width: 100%;
@@ -25,6 +24,7 @@
 
 @media screen and (max-width: 900px) {
   .container {
-    width: 95%;
+    width: 100%;
+    font-size: 0.8rem;
   }
 }

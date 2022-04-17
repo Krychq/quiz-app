@@ -75,7 +75,12 @@ export default function Summary() {
 
           <div className={styles.btnWrapper}>
             <Button
-              style={{ color: "#fff", borderColor: "#fff" }}
+              style={{
+                color: "#fff",
+                borderColor: "#fff",
+                padding: "0",
+                fontSize: ".95rem",
+              }}
               size={matches ? "lg" : "md"}
               radius="md"
               variant="outline"
