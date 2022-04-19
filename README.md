@@ -6,4 +6,4 @@
 
 [Api Here 😀](https://opentdb.com/api_config.php)
 
-ENJOY!
+Enjoy!
