@@ -1,13 +1,13 @@
 import React from "react"
 import Link from "next/link"
 import styles from "../styles/Custom404.module.scss"
-import { Player } from "@lottiefiles/react-lottie-player"
 import { Button } from "@mantine/core"
+import LottiePlayer from "../components/LottiePlayer"
 
 export default function Custom404() {
   return (
     <div className={styles.container}>
-      <Player
+      <LottiePlayer
         autoplay
         loop
         src="https://assets10.lottiefiles.com/packages/lf20_suhe7qtm.json"

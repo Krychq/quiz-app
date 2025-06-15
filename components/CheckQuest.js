@@ -1,14 +1,13 @@
 import React from "react"
 import styles from "../styles/CheckQuest.module.scss"
-import { decode } from "html-entities"
 
-function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
+function Quest({ question, answers, correct_answer, your_answer }) {
   return (
     <div className={styles.container}>
-      <h1>{decode(question)}</h1>
+      <h1>{question}</h1>
 
       <div className={styles.answersContainer}>
-        {[correct_answer, ...incorrect_answers].map((el, index) => {
+        {answers.map((el, index) => {
           let fontSize = "1rem"
 
           if (el.length > 40) fontSize = "0.8rem"
@@ -22,7 +21,7 @@ function Quest({ question, correct_answer, incorrect_answers, your_answer }) {
 
           return (
             <div key={index} className={answerClass}>
-              <h2 style={{ fontSize: fontSize }}>{decode(el)}</h2>
+              <h2 style={{ fontSize: fontSize }}>{el}</h2>
             </div>
           )
         })}

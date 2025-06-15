@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className={styles.container}>
       <p>
-        &copy; 2022 Enjoy. All Right Reserved. Author:{" "}
+        &copy; {new Date().getFullYear()} Enjoy. All Right Reserved. Author:{" "}
         <a href="https://github.com/Krychq" target="_blank" rel="noreferrer">
           Krystian Urban
         </a>

@@ -28,8 +28,8 @@ function MyApp({ Component, pageProps }) {
       <>
         <Head>
           <title>Quiz App</title>
-          <link rel="icon" href="/icon.ico" />
-          <meta name="robots" content="noindex, nofollow"></meta>
+          <link rel="icon" href="/icon.ico" type="image/x-icon"/>
+          <link rel="icon" type="image/png" href="/icon.png" sizes="32x32"/>
         </Head>
 
         <div style={styles}>

@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext } from "react"
 import styles from "../styles/Summary.module.scss"
 import { QuizContext } from "../context/QuizContext"
 import { useRouter } from "next/router"
-import { Player } from "@lottiefiles/react-lottie-player"
+
 import { Button } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
+import LottiePlayer from "../components/LottiePlayer"
 import ChoicesModal from "../components/ChoicesModal"
 
 export default function Summary() {
@@ -22,13 +23,12 @@ export default function Summary() {
   const [count, setCount] = useState([0, 0]) // [0] => correct / [1] => all
   const [gifIsVisible, setGifIsVisible] = useState(true)
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const { quests, setQuests, answers, setAnswers } = useContext(QuizContext)
+  const { quests, answers, resetQuiz } = useContext(QuizContext)
   const matches = useMediaQuery("(min-width: 700px)")
   const router = useRouter()
 
   function newQuiz() {
-    setQuests(null)
-    setAnswers([])
+    resetQuiz()
 
     router.push("/")
   }
@@ -56,7 +56,7 @@ export default function Summary() {
 
   if (gifIsVisible) {
     return (
-      <Player
+      <LottiePlayer
         autoplay
         src="https://assets6.lottiefiles.com/packages/lf20_hxart9lz.json"
         style={{ height: "80%", width: "80%" }}

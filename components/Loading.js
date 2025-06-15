@@ -1,5 +1,5 @@
 import React from "react"
-import { Player } from "@lottiefiles/react-lottie-player"
+import LottiePlayer from "./LottiePlayer"
 
 function Loading() {
   const styles = {
@@ -16,7 +16,7 @@ function Loading() {
   }
   return (
     <div style={styles.container}>
-      <Player
+      <LottiePlayer
         autoplay
         loop
         src="https://assets5.lottiefiles.com/packages/lf20_QUbOiL.json"
